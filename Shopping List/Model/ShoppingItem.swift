@@ -8,13 +8,19 @@
 
 import UIKit
 
-struct  ShoppingItem {
+struct ShoppingItem: Equatable, Codable {
     var name: String
-    var isAdded: Bool = false
-    var image: UIImage
-    
-    init(name: String, imageName: String) {
-        self.name = name
-        self.image = UIImage(named: imageName)!
+    var isAdded: Bool
+    var image: UIImage {
+        
+        return UIImage(named: name)!
     }
+    
+    init(name: String, isAdded: Bool = false) {
+        self.name = name
+        self.isAdded = isAdded
+        
+    }
+    
+    
 }
